@@ -1,6 +1,6 @@
 #!/bin/sh
-topdir=`dirname $0`
-cd "$topdir"
+TOPDIR=`dirname $0`
+cd "$TOPDIR"
 if [ -d temp ]
 then
     rm -rf temp 
@@ -14,15 +14,10 @@ cat > docstrip.cfg <<EOF
 \UseTDS
 EOF
 tex tudscr.ins
-texmfpath=`kpsewhich --var-value=TEXMFLOCAL|sed 's,^!*,,'`
-cp -r tex "$texmfpath" 
-cd "$topdir"
+TEXMFPATH=`kpsewhich --var-value=TEXMFHOME`
+cp -r tex "$TEXMFPATH" 
+cd "$TOPDIR"
 if [ -d temp ]
 then
     rm -rf temp 
 fi
-# Wenn keine ls-R-Datei existiert möchte der 
-# Nutzer eventuell auch keine haben, um neue 
-# oder gelöschte Dateien schnell und fehlerfrei
-# zur Verfügung zu haben.
-test -f "$texmfpath/ls-R" && mktexlsr "$texmfpath"
