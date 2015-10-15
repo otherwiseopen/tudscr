@@ -91,7 +91,7 @@ cp tudscr.pdf tudscr_print.pdf
 pdflatex '\def\tudfinalflag{}\input{tudscr.tex}'
 rm tutorials\*autopp*.*
 
-find tutorials/*.pdf | grep -v '\-temp.pdf' | grep -v '\-pics.pdf' | xargs -I X mv X latex/tudscr
+find tutorials/*.pdf | grep -v '\-temp.pdf' | grep -v '\-pics.pdf' | xargs -I X mv X latex/tudscr/tutorials
 
 for i in tutorials/*-temp.pdf
 do
