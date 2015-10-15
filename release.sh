@@ -10,9 +10,6 @@ echo " Festlegen der Version, welche erstellt werden soll                      "
 echo "========================================================================="
 echo
 
-read -rsp $'Press any key to continue... (or Ctrl-C to exit)\n' -n1 key
-
-
 # grep for the version in source\tudscr-version.dtx
 # 
 VERSION=`egrep -o "\\@TUDVersion{([0-9]{4}/[0-9][0-9]/[0-9][0-9])" source/tudscr-version.dtx | egrep -o [0-9].*`
@@ -33,9 +30,6 @@ echo "========================================================================="
 echo " Erzeugen der Klassen und der inline-Dokumentation fuer $VERSION"
 echo "========================================================================="
 echo
-
-read -rsp $'Press any key to continue... (or Ctrl-C to exit)\n' -n1 key
-
 
 ./update_classes.sh > log.log
 cp -r source temp
@@ -76,9 +70,6 @@ echo " Erzeugen des Benutzerhandbuchs"
 echo "========================================================================="
 echo
 
-read -rsp $'Press any key to continue... (or Ctrl-C to exit)\n' -n1 key
-
-
 cd doc
 pdflatex -shell-escape '\def\tudfinalflag{}\input{tudscr.tex}'
 pdflatex '\def\tudfinalflag{}\input{tudscr.tex}'
@@ -112,9 +103,6 @@ echo "Erzeugen der Installationdateien"
 echo "========================================================================="
 echo
 
-read -rsp $'Press any key to continue... (or Ctrl-C to exit)\n' -n1 key
-
-
 cd install
 cp ../source/latex/tudscr/tudscr-version.dtx ..
 tex tud-install.ins
@@ -136,9 +124,6 @@ echo "========================================================================="
 echo " Release fuer GitHub"
 echo "========================================================================="
 echo
-
-read -rsp $'Press any key to continue... (or Ctrl-C to exit)\n' -n1 key
-
 
 cd $MYDIR
 mkdir -p release-$VERSION/temp
