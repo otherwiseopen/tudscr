@@ -58,6 +58,17 @@
 \usedir{tex/latex/tudscr}
 \generate{%
   \usepreamble\defaultpreamble%
+  \file{tudscrfields.sty}{%
+    \from{tudscr-version.dtx}{package}%
+    \from{tudscr-base.dtx}{load}%
+    \from{tudscr-fields.dtx}{class,body}%
+    \from{tudscr-locale.dtx}{class,body}%
+  }
+}
+
+\usedir{tex/latex/tudscr}
+\generate{%
+  \usepreamble\defaultpreamble%
   \file{tudscrbase.sty}{%
     \from{tudscr-version.dtx}{package}%
     \from{tudscr-base.dtx}{package}%
