@@ -70,7 +70,7 @@
 \generate{%
   \usepreamble\defaultpreamble%
   \file{tudscrbase.sty}{%
-    \from{tudscr-version.dtx}{package}%
+    \from{tudscr-version.dtx}{package,base}%
     \from{tudscr-base.dtx}{package}%
   }
   \file{tudscrbook.cls}{%
@@ -79,19 +79,19 @@
     \from{tudscr-fonts.dtx}{class,option}%
     \from{tudscr-pagestyle.dtx}{class,book,option}%
     \from{tudscr-layout.dtx}{class,book,option}%
-    \from{tudscr-frontmatter.dtx}{class,book,option}%
     \from{tudscr-title.dtx}{class,book,option}%
+    \from{tudscr-frontmatter.dtx}{class,book,option}%
     \from{tudscr-comp.dtx}{class,book,option}%
     \from{tudscr-misc.dtx}{class,book,option}%
-    \from{tudscr-misc.dtx}{class,execute}%
+    \from{tudscr-misc.dtx}{class,book,execute}%
     \from{tudscr-base.dtx}{class,body}%
     \from{tudscr-fonts.dtx}{class,body}%
-    \from{tudscr-fields.dtx}{class,body}%
+    \from{tudscr-fields.dtx}{class,book,body}%
     \from{tudscr-locale.dtx}{class,book,body}%
     \from{tudscr-pagestyle.dtx}{class,book,body}%
     \from{tudscr-layout.dtx}{class,book,body}%
-    \from{tudscr-frontmatter.dtx}{class,book,body}%
     \from{tudscr-title.dtx}{class,book,body}%
+    \from{tudscr-frontmatter.dtx}{class,book,body}%
     \from{tudscr-comp.dtx}{class,book,body}%
     \from{tudscr-misc.dtx}{class,book,body}%
   }
@@ -101,19 +101,19 @@
     \from{tudscr-fonts.dtx}{class,option}%
     \from{tudscr-pagestyle.dtx}{class,report,option}%
     \from{tudscr-layout.dtx}{class,report,option}%
-    \from{tudscr-frontmatter.dtx}{class,report,option}%
     \from{tudscr-title.dtx}{class,report,option}%
+    \from{tudscr-frontmatter.dtx}{class,report,option}%
     \from{tudscr-comp.dtx}{class,report,option}%
     \from{tudscr-misc.dtx}{class,report,option}%
-    \from{tudscr-misc.dtx}{class,execute}%
+    \from{tudscr-misc.dtx}{class,report,execute}%
     \from{tudscr-base.dtx}{class,body}%
     \from{tudscr-fonts.dtx}{class,body}%
-    \from{tudscr-fields.dtx}{class,body}%
+    \from{tudscr-fields.dtx}{class,report,body}%
     \from{tudscr-locale.dtx}{class,report,body}%
     \from{tudscr-pagestyle.dtx}{class,report,body}%
     \from{tudscr-layout.dtx}{class,report,body}%
-    \from{tudscr-frontmatter.dtx}{class,report,body}%
     \from{tudscr-title.dtx}{class,report,body}%
+    \from{tudscr-frontmatter.dtx}{class,report,body}%
     \from{tudscr-comp.dtx}{class,report,body}%
     \from{tudscr-misc.dtx}{class,report,body}%
   }
@@ -123,53 +123,44 @@
     \from{tudscr-fonts.dtx}{class,option}%
     \from{tudscr-pagestyle.dtx}{class,article,option}%
     \from{tudscr-layout.dtx}{class,article,option}%
-    \from{tudscr-frontmatter.dtx}{class,article,option}%
     \from{tudscr-title.dtx}{class,article,option}%
+    \from{tudscr-frontmatter.dtx}{class,article,option}%
     \from{tudscr-comp.dtx}{class,article,option}%
     \from{tudscr-misc.dtx}{class,article,option}%
-    \from{tudscr-misc.dtx}{class,execute}%
+    \from{tudscr-misc.dtx}{class,article,execute}%
     \from{tudscr-base.dtx}{class,body}%
     \from{tudscr-fonts.dtx}{class,body}%
-    \from{tudscr-fields.dtx}{class,body}%
+    \from{tudscr-fields.dtx}{class,article,body}%
     \from{tudscr-locale.dtx}{class,article,body}%
     \from{tudscr-pagestyle.dtx}{class,article,body}%
     \from{tudscr-layout.dtx}{class,article,body}%
-    \from{tudscr-frontmatter.dtx}{class,article,body}%
     \from{tudscr-title.dtx}{class,article,body}%
+    \from{tudscr-frontmatter.dtx}{class,article,body}%
     \from{tudscr-comp.dtx}{class,article,body}%
     \from{tudscr-misc.dtx}{class,article,body}%
   }
-}
-\generate{%
-  \usepreamble\defaultpreamble%
-  \file{tudscrfonts.sty}{%
-    \from{tudscr-version.dtx}{package}%
-    \from{tudscr-fonts.dtx}{package,identify}%
-    \from{tudscr-base.dtx}{load}%
-    \from{tudscr-comp.dtx}{package,preset,fonts}%
-    \from{tudscr-fonts.dtx}{package,option}%
-    \from{tudscr-comp.dtx}{package,option,fonts}%
-    \from{tudscr-misc.dtx}{package,execute,fonts}%
-    \from{tudscr-fonts.dtx}{package,body}%
-    \from{tudscr-comp.dtx}{package,body,fonts}%
+  \file{tudscrposter.cls}{%
+    \from{tudscr-version.dtx}{class,poster}%
+    \from{tudscr-base.dtx}{class,load}%
+    \from{tudscr-fonts.dtx}{class,option}%
+    \from{tudscr-pagestyle.dtx}{class,poster,option}%
+    \from{tudscr-layout.dtx}{class,poster,option}%
+    \from{tudscr-title.dtx}{class,poster,option}%
+    \from{tudscr-frontmatter.dtx}{class,poster,option}%
+    \from{tudscr-comp.dtx}{class,poster,option}%
+    \from{tudscr-misc.dtx}{class,poster,option}%
+    \from{tudscr-misc.dtx}{class,poster,execute}%
+    \from{tudscr-base.dtx}{class,body}%
+    \from{tudscr-fonts.dtx}{class,body}%
+    \from{tudscr-fields.dtx}{class,poster,body}%
+    \from{tudscr-locale.dtx}{class,poster,body}%
+    \from{tudscr-pagestyle.dtx}{class,poster,body}%
+    \from{tudscr-layout.dtx}{class,poster,body}%
+    \from{tudscr-title.dtx}{class,poster,body}%
+    \from{tudscr-frontmatter.dtx}{class,poster,body}%
+    \from{tudscr-comp.dtx}{class,poster,body}%
+    \from{tudscr-misc.dtx}{class,poster,body}%
   }
-%  \file{tudscrfontsizes.sty}{%
-%    \from{tudscr-version.dtx}{package}%
-%    \from{tudscr-fonts.dtx}{package,identify,fontsizes}%
-%    \from{tudscr-fonts.dtx}{package,body,fontsizes}%
-%  }
-%  \file{tudscrsize10pt.clo}{%
-%    \from{tudscr-version.dtx}{package}%
-%    \from{tudscr-fonts.dtx}{fontsizes,10pt}%
-%  }
-%  \file{tudscrsize11pt.clo}{%
-%    \from{tudscr-version.dtx}{package}%
-%    \from{tudscr-fonts.dtx}{fontsizes,11pt}%
-%  }
-%  \file{tudscrsize12pt.clo}{%
-%    \from{tudscr-version.dtx}{package}%
-%    \from{tudscr-fonts.dtx}{fontsizes,12pt}%
-%  }
 }
 \generate{%
   \usepreamble\defaultpreamble%
@@ -180,29 +171,39 @@
     \from{tudscr-locale.dtx}{package,supervisor}%
   }
 }
-%\generate{%
-%  \usepreamble\defaultpreamble%
-%  \file{tudscrposter.sty}{%
-%    \from{tudscr-version.dtx}{package,poster}%
-%    \from{tudscr-poster.dtx}{package,identify}%
-%    \from{tudscr-base.dtx}{load}%
-%    \from{tudscr-poster.dtx}{package,option}%
-%    \from{tudscr-misc.dtx}{package,execute,poster}%
-%    \from{tudscr-poster.dtx}{package,body}%
-%    \from{tudscr-fields.dtx}{package,poster}%
-%    \from{tudscr-locale.dtx}{package,poster}%
-%  }
-%}
+\generate{%
+  \usepreamble\defaultpreamble%
+  \file{tudscrfonts.sty}{%
+    \from{tudscr-version.dtx}{package,fonts}%
+    \from{tudscr-fonts.dtx}{package,identify}%
+    \from{tudscr-base.dtx}{load}%
+    \from{tudscr-fonts.dtx}{package,option}%
+    \from{tudscr-comp.dtx}{package,fonts,option}%
+    \from{tudscr-misc.dtx}{package,fonts,execute}%
+    \from{tudscr-fonts.dtx}{package,body}%
+    \from{tudscr-comp.dtx}{package,fonts,body}%
+  }
+}
+\generate{%
+  \usepreamble\defaultpreamble%
+  \file{tudscrfonts-fix.sty}{%
+    \from{tudscr-version.dtx}{package,fontsfix}%
+    \from{tudscr-comp.dtx}{package,fontsfix,identify}%
+    \from{tudscr-base.dtx}{load}%
+    \from{tudscr-comp.dtx}{package,fontsfix,option}%
+    \from{tudscr-comp.dtx}{package,fontsfix,body}%
+  }
+}
 \generate{%
   \usepreamble\defaultpreamble%
   \file{tudscrcomp.sty}{%
     \from{tudscr-version.dtx}{package,comp}%
-    \from{tudscr-comp.dtx}{package,identify}%
-    \from{tudscr-comp.dtx}{package,option}%
-    \from{tudscr-comp.dtx}{package,body}%
+    \from{tudscr-comp.dtx}{package,comp,identify}%
+    \from{tudscr-comp.dtx}{package,comp,option}%
+    \from{tudscr-comp.dtx}{package,comp,body}%
   }
   \file{tudscrcolor.sty}{%
-    \from{tudscr-version.dtx}{package}%
+    \from{tudscr-version.dtx}{package,color}%
     \from{tudscr-color.dtx}{package}%
   }
   \file{twocolfix.sty}{%
@@ -214,20 +215,22 @@
 }
 \generate{%
   \usepreamble\defaultpreamble%
-  \file{tudscrman.cls}{%
+  \file{tudscrmanual.cls}{%
     \from{tudscr-version.dtx}{class,manual}%
     \from{tudscr-manual.dtx}{class}%
     \from{tudscr-base.dtx}{class,load}%
     \from{tudscr-manual.dtx}{class,option}%
     \from{tudscr-misc.dtx}{class,inherit,execute}%
     \from{tudscr-manual.dtx}{class,body}%
+    \from{tudscr-fields.dtx}{class,manual,body}%
+    \from{tudscr-locale.dtx}{class,manual,body}%
   }
-  \file{tudscrman.sty}{%
-    \from{tudscr-version.dtx}{package,manual}%
+  \file{tudscrtutorial.sty}{%
+    \from{tudscr-version.dtx}{package,tutorial}%
     \from{tudscr-manual.dtx}{package,identify}%
     \from{tudscr-base.dtx}{load}%
     \from{tudscr-manual.dtx}{package,option}%
-    \from{tudscr-misc.dtx}{}%
+    \from{tudscr-misc.dtx}{package,execute}%
     \from{tudscr-manual.dtx}{package,body}%
   }
 }
