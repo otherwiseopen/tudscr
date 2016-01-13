@@ -309,10 +309,17 @@
         }%
       \fi%
     }%
-    \@tempa{\encodingdefault}%
-      {\tud@univers}{\@tud@universtrue}{\@tempc{Univers}}%
-    \@tempa{\encodingdefault}%
-      {\tud@dinbold}{\@tud@dinboldtrue}{\@tempc{DIN Bold}}%
+	\ifstr{T1}{\encodingdefault}{
+      \@tempa{t1}%
+        {\tud@univers}{\@tud@universtrue}{\@tempc{Univers}}%
+      \@tempa{t1}%
+        {\tud@dinbold}{\@tud@dinboldtrue}{\@tempc{DIN Bold}}%
+	}{
+      \@tempa{\encodingdefault}%
+        {\tud@univers}{\@tud@universtrue}{\@tempc{Univers}}%
+      \@tempa{\encodingdefault}%
+        {\tud@dinbold}{\@tud@dinboldtrue}{\@tempc{DIN Bold}}%
+	}
   \fi%
   \undef\tud@font@check%
 }
