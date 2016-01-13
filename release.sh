@@ -4,6 +4,34 @@ ORIGINALDIR=`pwd`     # save original dir for later
 cd `dirname $0`     # change to directory of batch file
 MYDIR=`pwd`
 
+FASTMODE="false"
+GITHUB="false"
+
+while getopts "fgh" OPTION; do
+        case $OPTION in
+
+                f)
+                        FASTMODE="true"
+                        ;;
+
+                g)
+                        GITHUB="true"
+                        ;;
+
+                h)
+                        echo "Usage:"
+                        echo "release.sh -[fg] "
+                        echo "release.sh -h "
+                        echo ""
+                        echo "   -f     do not create the handbook (fast mode)"
+                        echo "   -g     create github release"
+                        echo "   -h     help (this output)"
+                        exit 0
+                        ;;
+
+        esac
+done
+
 echo
 echo "========================================================================="
 echo " Festlegen der Version, welche erstellt werden soll                      "
@@ -11,7 +39,7 @@ echo "========================================================================="
 echo
 
 # grep for the version in source\tudscr-version.dtx
-# 
+#
 VERSION=`egrep -o "\\@TUDVersion{([0-9]{4}/[0-9][0-9]/[0-9][0-9])" source/tudscr-version.dtx | egrep -o [0-9].*`
 
 echo -n "$VERSION"
@@ -62,8 +90,10 @@ do
 done
 mv    tudscrsource.pdf doc/latex/tudscr/
 mv    logo             tex/latex/tudscr/
-rm *?.?* 
+rm *?.?*
 
+if [ $FASTMODE = "false" ]
+then
 echo
 echo "========================================================================="
 echo " Erzeugen des Benutzerhandbuchs"
@@ -96,6 +126,7 @@ rm *?.?*
 rm -r examples
 rm -r tutorials
 cd ..
+fi
 
 echo
 echo "========================================================================="
@@ -119,6 +150,8 @@ done
 
 rm ../tudscr-version.dtx
 
+if [ $GITHUB = "true" ]
+then
 echo
 echo "========================================================================="
 echo " Release fuer GitHub"
@@ -170,13 +203,14 @@ cd ..
 ls *.zip | grep -v "*_converted*.zip" | grep -v "_all.zip" | xargs -I X mv X GitHub/
 mv temp/tudscr_${VERSION}_full.zip  GitHub/tudscr_${VERSION}.zip
 cp temp/tudscr_uninstall.*        GitHub/
+fi
 
 # echo
 # echo =========================================================================
 # echo  Release fuer CTAN
 # echo =========================================================================
 # echo
-# 
+#
 # mkdir CTAN\tudscr\doc
 # mkdir CTAN\tudscr\source
 # mkdir CTAN\tudscr\logo
@@ -187,14 +221,14 @@ cp temp/tudscr_uninstall.*        GitHub/
 # cd temp
 # (
 #   echo With WScript
-#   echo   ZipFile = .Arguments^(0^) 
-#   echo   Folder = .Arguments^(1^) 
+#   echo   ZipFile = .Arguments^(0^)
+#   echo   Folder = .Arguments^(1^)
 #   echo End With
-#   echo CreateObject^("Scripting.FileSystemObject"^).CreateTextFile^(ZipFile, True^).Write "PK" ^& Chr^(5^) ^& Chr^(6^) ^& String^(18, vbNullChar^) 
-#   echo With CreateObject^("Shell.Application"^) 
+#   echo CreateObject^("Scripting.FileSystemObject"^).CreateTextFile^(ZipFile, True^).Write "PK" ^& Chr^(5^) ^& Chr^(6^) ^& String^(18, vbNullChar^)
+#   echo With CreateObject^("Shell.Application"^)
 #   echo   .NameSpace^(ZipFile^).CopyHere .NameSpace^(Folder^).Items
 #   echo End With
-#   echo wScript.Sleep 2000 
+#   echo wScript.Sleep 2000
 # ) > winzip.vbs
 # cd ..
 # CScript  temp\winzip.vbs %cd%\tudscr.zip %cd%\CTAN
@@ -205,7 +239,7 @@ cp temp/tudscr_uninstall.*        GitHub/
 # echo  Aktualisierung des Releases der Version v1.0 fuer GitHub
 # echo =========================================================================
 # echo
-# 
+#
 # cd %~dp0
 # mkdir release-%version%\GitHub-tudscrold
 # mkdir release-%version%\temp\tudscrold\doc\latex\tudscrold
